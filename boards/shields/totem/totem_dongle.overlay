@@ -10,36 +10,6 @@
     transform = <&default_transform>;
 };
 
-/* Override YADS SPI pins to match Prospector/XIAO wiring */
-&pinctrl {
-    spi3_default: spi3_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                <NRF_PSEL(SPIM_MOSI, 1, 15)>,
-                <NRF_PSEL(SPIM_MISO, 1, 10)>;
-        };
-    };
-    spi3_sleep: spi3_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                <NRF_PSEL(SPIM_MOSI, 1, 15)>,
-                <NRF_PSEL(SPIM_MISO, 1, 10)>;
-            low-power-enable;
-        };
-    };
-    pwm1_default: pwm1_default {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>;
-        };
-    };
-    pwm1_sleep: pwm1_sleep {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>;
-            low-power-enable;
-        };
-    };
-};
-
 / {
     chosen {
         zmk,kscan = &mock_kscan;
